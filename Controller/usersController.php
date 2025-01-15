@@ -68,7 +68,7 @@ class UsersController
             if ($user) {
                 if (password_verify($_POST['mdp'], $user['mdp'])) {
                     $_SESSION["email"] = $user["email"];
-                    header("Location: index.php?page=inscription");
+                    header("Location : /ViewUser/regledujeu.php");
                     exit();
                 } else {
                     echo "Le mot de passe est incorrect.";
