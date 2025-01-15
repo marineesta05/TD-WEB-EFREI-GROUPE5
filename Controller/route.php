@@ -8,12 +8,8 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'inscription';
 
 switch ($page) {
     case 'connexion':
-        $users = new UsersController();
-        $users->getFormConnexion();
-        break;
-
-    case 'connexion_action':
-        $users = new UsersController();
+        include_once 'controller/usersController.php';
+        $users = new UsersController;
         $users->connexion();
         break;
 

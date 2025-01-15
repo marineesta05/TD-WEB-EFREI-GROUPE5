@@ -41,8 +41,6 @@ class UsersController
         }
     }
 
-
-
     public function getFormConnexion()
     {
         include 'view/connexion.php';
@@ -50,14 +48,12 @@ class UsersController
 
     public function connexion()
     {
-        if (isset($_POST['email']) && isset($_POST['password'])) {
+        if (isset($_POST['email']) && isset($_POST['mdp'])) {
             $email = $_POST['email'];
             $user = $this->model->getUserByMail($email);
-
-            if ($user && password_verify($_POST['password'], $user['password'])) {
+            if ($user && password_verify($_POST['mdp'], $user['mdp'])) {
                 $_SESSION["email"] = $user["email"];
-                echo "Connexion réussie !";
-                header("inscription.php");
+                header("Location: index.php?page=inscription");
                 exit();
             } else {
                 echo "Erreur de connexion.";
@@ -67,5 +63,4 @@ class UsersController
             $this->getFormConnexion();
         }
     }
-
 }
