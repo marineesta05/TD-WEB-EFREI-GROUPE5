@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/auth.css">
 <h1>Connexion Admin</h1>
 <form action="/index.php?page=connexionAdmin" method="POST" >
     Email :<input type="text" name="email" required>

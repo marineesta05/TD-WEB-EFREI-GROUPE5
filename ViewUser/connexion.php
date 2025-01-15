@@ -1,6 +1,7 @@
+<link rel="stylesheet" href="/auth.css">
 <h1>Connexion</h1>
 <form action="/index.php?page=connexion" method="POST" >
-    Email :<input type="text" name="email" required>
+    Email :<input type="email" name="email" required>
     <br>
     Mot de passe :<input type="password" name="mdp" required>
     <br>
