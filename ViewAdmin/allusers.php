@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('Location: index.php?page=connexion'); 
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +16,12 @@
 </head>
 <body>
     <header>
-    <nav>
-        <ul>
-            <?php echo "Bienvenue, " . $_SESSION['username'] . " ! <br>";?>
-            <li><a href="index.php?page=deconnexion">Déconnexion</a></li> 
-        </ul>
-    </nav>
+        <nav>
+            <ul>
+                <li><?php echo "Bienvenue, " . htmlspecialchars($_SESSION['username']) . " ! <br>"; ?></li>
+                <li><a href="index.php?page=deconnexion">Déconnexion</a></li>
+            </ul>
+        </nav>
     </header>
     <h1>Liste des utilisateurs</h1>
         <?php if (!empty($users)): ?>
