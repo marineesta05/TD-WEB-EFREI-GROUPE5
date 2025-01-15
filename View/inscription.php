@@ -4,6 +4,6 @@
     Email : <input type="email" name="email" required><br>
     Mot de passe : <input type="password" name="mdp" required><br>
     <button type="submit">S'inscrire</button><br>
-    <p>Vous avez déjà un compte ? <a href="connexion.php">Se connecter</a></p>
+    <p>Vous avez déjà un compte ? <a href="/View/connexion.php">Se connecter</a></p>
 
 </form>
