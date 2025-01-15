@@ -14,9 +14,24 @@ CREATE DATABASE "Groupe10"
     IS_TEMPLATE = False;
 	
 CREATE TABLE users (
-	id_user INT SERIAL PRIMARY KEY,
+	id_user SERIAL PRIMARY KEY,
 	username VARCHAR(30) NOT NULL,
 	email VARCHAR(50) UNIQUE NOT NULL,
 	mdp VARCHAR(60) NOT NULL
-)
+);
 SELECT * FROM users;
+
+CREATE TABLE admin (
+	id_admin SERIAL PRIMARY KEY,
+	username VARCHAR(30) NOT NULL,
+	email VARCHAR (50) NOT NULL UNIQUE,
+	mdp VARCHAR(60) NOT NULL
+);
+
+SELECT * FROM admin;
+INSERT INTO admin (username, email, mdp) VALUES 
+('marineesta', 'marineesta05@gmail.com', 'Marine'),
+('mariegrace', 'mariegrace@gmail.com', 'Marie'),
+('marinecadet', 'marinecadet05@gmail.com', 'Marine1'),
+('leiladiallo', 'leiladiallo@gmail.com', 'Leila'),
+('sebastien', 'sebastien@net-consult.info', 'Sebastien');

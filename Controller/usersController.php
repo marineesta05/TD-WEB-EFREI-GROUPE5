@@ -14,7 +14,7 @@ class UsersController
 
     public function getFormInscription()
     {
-        include 'View/inscription.php';
+        include 'ViewUser/inscription.php';
     }
 
     public function inscription()
@@ -37,13 +37,13 @@ class UsersController
         } else {
             echo "Champs vides.";
             $error = "Veuillez remplir tous les champs.";
-            include 'View/inscription.php';
+            include 'ViewUser/inscription.php';
         }
     }
 
     public function getFormConnexion()
     {
-        include 'view/connexion.php';
+        include 'ViewUser/connexion.php';
     }
 
     public function connexion()
@@ -63,4 +63,29 @@ class UsersController
             $this->getFormConnexion();
         }
     }
+
+    public function connexionAdmin()
+    {
+        if (isset($_POST['email']) && isset($_POST['mdp'])) {
+            $email = $_POST['email'];
+            $user = $this->model->getAdminByMail($email);
+            if ($user && password_verify($_POST['mdp'], $user['mdp'])) {
+                $_SESSION["email"] = $user["email"];
+                header("Location: index.php?page=allusers");
+                exit();
+            } else {
+                echo "Erreur de connexion.";
+                $this->getFormConnexion();
+            }
+        } else {
+            $this->getFormConnexion();
+        }
+    }
+
+    public function showAllUsers()
+{
+    $users = $this->model->getAllUsers();
+    include 'ViewAdmin/allusers.php'; 
+}
+
 }
