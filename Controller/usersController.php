@@ -26,13 +26,13 @@ class UsersController
 
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $error = "Adresse e-mail invalide.";
-                include 'View/inscription.php';
+                include 'ViewUser/inscription.php';
                 return;
             }
 
             if (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $mdp)) {
                 $error = "Le mot de passe doit contenir au moins 8 caractères, incluant une lettre, un chiffre et un symbole.";
-                include 'View/inscription.php';
+                include 'ViewUser/inscription.php';
                 return;
             }
 
@@ -45,7 +45,7 @@ class UsersController
             } else {
                 echo "Échec de l'insertion.";
                 $error = "Erreur lors de l'inscription. Cet e-mail est peut-être déjà utilisé.";
-                include 'View/inscription.php';
+                include 'ViewUser/inscription.php';
             }
         } else {
             echo "Champs vides.";
@@ -86,13 +86,14 @@ class UsersController
     {
         if (isset($_POST['email']) && isset($_POST['mdp'])) {
             $email = $_POST['email'];
-            $user = $this->model->getAdminByMail($email);
-            if ($user && password_verify($_POST['mdp'], $user['mdp'])) {
-                $_SESSION["email"] = $user["email"];
+            $userAd = $this->model->getAdminByMail($email);
+            if ($userAd && password_verify($_POST['mdp'], $userAd['mdp'])) {
+                session_start();
+                $_SESSION['username'] = $userAd["username"];
                 header("Location: index.php?page=allusers");
                 exit();
             } else {
-                echo "Erreur de connexion.";
+                echo "Vous ne pouvez pas vous connecter. Vous n'etes pas un admin.";
                 $this->getFormConnexion();
             }
         } else {

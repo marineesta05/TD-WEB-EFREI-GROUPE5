@@ -35,3 +35,18 @@ INSERT INTO admin (username, email, mdp) VALUES
 ('marinecadet', 'marinecadet05@gmail.com', 'Marine1'),
 ('leiladiallo', 'leiladiallo@gmail.com', 'Leila'),
 ('sebastien', 'sebastien@net-consult.info', 'Sebastien');
+
+CREATE TABLE lieux(
+	id_image SERIAL PRIMARY KEY,
+	name_image VARCHAR(30),
+	image TEXT
+)
+
+CREATE TABLE objets (
+	id_objet SERIAL PRIMARY KEY,
+	name_objet VARCHAR(30),
+	css TEXT,
+	sous_image VARCHAR (30),
+	id_image INT REFERENCES lieux(id_image)
+)
+
