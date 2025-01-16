@@ -104,9 +104,14 @@ class UsersController
     }
 
     public function showAllUsers()
-{
-    $users = $this->model->getAllUsers();
-    include 'ViewAdmin/allusers.php'; 
-}
+    {
+        $users = $this->model->getAllUsers();
+        include 'ViewAdmin/allusers.php'; 
+    }
 
+    public function SuppUsers($id)
+    {
+        $users = $this->model->deleteUser($id);
+        include 'ViewAdmin/allusers.php'; 
+    }
 }

@@ -40,7 +40,13 @@ switch ($page) {
         $users = new UsersController();
         $users->showAllUsers();
         break;
-
+    
+    case 'Supusers':
+        include_once 'Controller/usersController.php';
+        $users = new UsersController();
+        $users->SuppUsers($id);
+        break;
+        
     default:
         include 'View/404.php';
         break;

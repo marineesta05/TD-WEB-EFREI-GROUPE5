@@ -30,5 +30,11 @@ class UsersModel{
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
+    public function deleteUser($id){
+        $stmt = $this->bdd->prepare("DELETE FROM users WHERE id_user = ?");
+        return $stmt->execute([$id]);
+    }
     
 }

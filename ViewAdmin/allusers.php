@@ -42,6 +42,7 @@
                     <th>Email</th>
                     <th>Nom</th>
                     <th>Mot de passe</th>
+                    <th>Suppression</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,6 +52,13 @@
                         <td><?= htmlspecialchars($user['email']) ?></td>
                         <td><?= htmlspecialchars($user['username']) ?></td>
                         <td><?= htmlspecialchars($user['mdp']) ?></td>
+                        <td>
+                            <a href="index.php?page=Supusers&id=<?= htmlspecialchars($user['id_user']) ?>" 
+                               class="btn btn-danger btn-sm"
+                               onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')">
+                                Supprimer
+                            </a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
