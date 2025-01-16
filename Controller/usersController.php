@@ -14,7 +14,7 @@ class UsersController
 
     public function getFormInscription()
     {
-        include 'ViewUser/inscription.php';
+        include 'ViewUser/auth/inscription.php';
     }
 
     public function inscription()
@@ -26,13 +26,13 @@ class UsersController
 
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $error = "Adresse e-mail invalide.";
-                include 'ViewUser/inscription.php';
+                include 'ViewUser/auth/inscription.php';
                 return;
             }
 
             if (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $mdp)) {
                 $error = "Le mot de passe doit contenir au moins 8 caractères, incluant une lettre, un chiffre et un symbole.";
-                include 'ViewUser/inscription.php';
+                include 'ViewUser/auth/inscription.php';
                 return;
             }
 
@@ -45,18 +45,18 @@ class UsersController
             } else {
                 echo "Échec de l'insertion.";
                 $error = "Erreur lors de l'inscription. Cet e-mail est peut-être déjà utilisé.";
-                include 'ViewUser/inscription.php';
+                include 'ViewUser/auth/inscription.php';
             }
         } else {
             echo "Champs vides.";
             $error = "Veuillez remplir tous les champs.";
-            include 'ViewUser/inscription.php';
+            include 'ViewUser/auth/inscription.php';
         }
     }
 
     public function getFormConnexion()
     {
-        include 'ViewUser/connexion.php';
+        include 'ViewUser/auth/connexion.php';
     }
 
     public function connexion()
@@ -70,7 +70,7 @@ class UsersController
                     session_start();
                     $_SESSION["email"] = $user["email"];
                     $_SESSION["username"] = $user["username"];
-                    header("Location: /ViewUser/regledujeu.php");
+                    header("Location: /ViewUser/game/regles/regledujeu.php");
                     exit();
                 } else {
                     echo "Le mot de passe est incorrect.";

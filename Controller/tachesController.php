@@ -1,5 +1,6 @@
 <?php
-include_once '../Model/tachesModel.php';
+include_once __DIR__ . '/../Model/tachesModel.php';
+
 
 class TachesController
 {

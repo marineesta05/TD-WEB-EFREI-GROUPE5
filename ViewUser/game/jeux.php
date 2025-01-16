@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../Controller/tachesController.php');
+require_once('../../Controller/tachesController.php');
 
 
 $controller = new TachesController();
@@ -20,7 +20,7 @@ $tachesPhase[6] = $controller->showTaches(6);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game</title> 
-    <link rel="stylesheet" href="/Etapes.css"> 
+    <link rel="stylesheet" href="Etapes.css"> 
     <link rel="stylesheet" href="https://bootswatch.com/5/minty/bootstrap.css"> 
 </head>
 <body>
@@ -38,11 +38,11 @@ $tachesPhase[6] = $controller->showTaches(6);
                     ?>
                 </li>
                 <li>
-                    <a class="accueil" href="regledujeu.php">Accueil</a>
+                    <a class="accueil" href="/regles/regledujeu.php">Accueil</a>
                 </li>
                 <li>
                     <button id="openPopup" class="icon-button">
-                        <img src="/Etapes.png" alt="Icône de parchemin" width="40" height="40">
+                        <img src="Etapes.png" alt="Icône de parchemin" width="40" height="40">
                     </button>
                 </li>
             </ul>
@@ -147,6 +147,6 @@ $tachesPhase[6] = $controller->showTaches(6);
 </div>
 
 
-  <script src="/Etapes.js"></script>
+  <script src="Etapes.js"></script>
 
   </body>

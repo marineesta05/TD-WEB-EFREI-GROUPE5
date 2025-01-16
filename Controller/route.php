@@ -48,6 +48,6 @@ switch ($page) {
         break;
         
     default:
-        include 'View/404.php';
+        include 'ViewUser/404.php';
         break;
 }
