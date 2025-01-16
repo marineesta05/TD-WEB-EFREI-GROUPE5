@@ -6,7 +6,7 @@ class UsersModel{
 
     private $bdd;
     public function __construct(){
-        $this->bdd = Bdd::connexion();
+        $this->bdd = Database::getConnection();
     }
     public function inscription($username,  $email, $mdp){  
         $user = $this->bdd->prepare("INSERT INTO users(username, email, mdp) VALUES (?,?,?)");

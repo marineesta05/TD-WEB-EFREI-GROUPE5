@@ -1,6 +1,8 @@
 <?php
 
-class Bdd {
+class Database {
+
+    private static $bdd = null;
 
     private static $host = 'localhost'; 
     private static $port = '5432'; 
@@ -8,16 +10,18 @@ class Bdd {
     private static $user = 'postgres'; 
     private static $password = 'marine'; 
 
-    public static function connexion() {
-        try {
-          
-            $dsn = "pgsql:host=" . self::$host . ";port=" . self::$port . ";dbname=" . self::$dbname;
-            $bdd = new PDO($dsn, self::$user, self::$password);
-            $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $bdd;
-
-        } catch (Exception $e) {
-            echo "Erreur de connexion à la base de données : " . $e->getMessage();
+    
+    public static function getConnection() {
+        if (self::$bdd === null) {
+            try {
+                $dsn = "pgsql:host=" . self::$host . ";port=" . self::$port . ";dbname=" . self::$dbname;
+                self::$bdd = new PDO($dsn, self::$user, self::$password);
+                self::$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (Exception $e) {
+                echo "Erreur de connexion à la base de données : " . $e->getMessage();
+                die();
+            }
         }
+        return self::$bdd;
     }
 }

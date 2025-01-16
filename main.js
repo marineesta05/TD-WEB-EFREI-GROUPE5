@@ -1,12 +1,7 @@
-import Alpine from "./node_modules/alpinejs/dist/module.esm.js";
+import Alpine from 'alpinejs';
 
-document.addEventListener("alpine:init", () => {
-  Alpine.data("gameHandler", () => ({
-    currentSection: "regles",
-    goToGame() {
-      this.currentSection = "game";
-    },
-  }));
+document.addEventListener('alpine:init', () => {
+  console.log('Alpine.js est initialisé.');
 });
 
 Alpine.start();

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <link rel="stylesheet" href="https://boothwatch.com/5/minty/boothwatch.css"> 
+    <link rel="stylesheet" href="allusers.css">
+    <link rel="stylesheet" href="https://bootswatch.com/5/minty/bootstrap.css"> 
 </head>
 <body> 
     <header>

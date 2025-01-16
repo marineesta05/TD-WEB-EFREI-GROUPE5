@@ -1,10 +1,13 @@
+<?php
+session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>headerUser</title>
-    <link rel="stylesheet" href="https://boothwatch.com/5/minty/boothwatch.css"> 
+    <title>Game</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/minty/bootstrap.css"> 
 </head>
 <body x-data="gameHandler()">
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -22,7 +25,7 @@
                 </li>
             </ul>
             <form class="d-flex">
-                <a href="index.php?page=deconnexion" class="btn btn-secondary my-2 my-sm-0">
+                <a href="/index.php?page=deconnexion" class="btn btn-secondary my-2 my-sm-0">
                     Déconnexion
                 </a>
             </form>

@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+    background-color:#bbdedb;
     color: #4a4a4a;
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ body {
 }
 
 form {
-    background-color: #ffffff;
+    background-color: #89b7b3;
     padding: 30px 20px 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -27,7 +27,7 @@ h1 {
     text-align: center;
     margin: 0;
     padding: 10px 0;
-    background-color: #a6dcef;
+    background-color: #89b7b3;
     color: #ffffff;
     position: absolute;
     top: 0;
@@ -47,7 +47,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 button {
-    background-color: #a6dcef;
+    background-color: #a4d1cd;;
     color: #ffffff;
     border: none;
     padding: 10px 15px;
@@ -60,11 +60,11 @@ button {
 }
 
 button:hover {
-    background-color: #89c7e7;
+    background-color:#89b7b3;;
 }
 
 a {
-    color: #89c7e7;
+    color: #000000;
     text-decoration: none;
 }
 
