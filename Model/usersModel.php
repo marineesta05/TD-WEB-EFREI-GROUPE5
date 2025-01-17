@@ -20,7 +20,7 @@ class UsersModel{
     }
 
     public function getAdminByMail($email){
-        $stmt = $this->bdd->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt = $this->bdd->prepare("SELECT * FROM admin WHERE email = ?");
         $stmt->execute([$email]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }

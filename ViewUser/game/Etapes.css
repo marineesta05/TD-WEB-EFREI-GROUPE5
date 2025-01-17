@@ -12,23 +12,25 @@
     display: flex;
 }
 
-
 .popup-content {
     background-color: #d2b48c;
     padding: 20px;
     border-radius: 10px;
-    width: 80%;
-    max-width: 400px; 
+    width: 800px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     max-height: 80vh;
-    overflow-y: auto; 
+    overflow-y: scroll; 
+    scrollbar-width: none; 
 }
 
+.popup-content::-webkit-scrollbar {
+    display: none; 
+}
 
 .close-btn {
     position: absolute;
-    top: 10px;
+    top: 70px;
     right: 10px;
     font-size: 20px;
     cursor: pointer;
@@ -62,6 +64,13 @@
 
 .navbar-nav .nav-item a + button {
     margin-left: 20px; 
+}
+
+nav {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 10000 !important;
 }
 
 

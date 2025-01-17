@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="auth.css">
+<link rel="stylesheet" href="/ViewUser/auth/auth.css">
 <h1>Connexion</h1>
 <form action="/index.php?page=connexion" method="POST" >
     Email :<input type="email" name="email" required>

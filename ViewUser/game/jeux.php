@@ -12,6 +12,7 @@ $tachesPhase[4] = $controller->showTaches(4);
 $tachesPhase[5] = $controller->showTaches(5);
 $tachesPhase[6] = $controller->showTaches(6);
 
+
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +39,7 @@ $tachesPhase[6] = $controller->showTaches(6);
                     ?>
                 </li>
                 <li>
-                    <a class="accueil" href="/regles/regledujeu.php">Accueil</a>
+                    <a class="accueil" href="../game/regles/regledujeu.php">Accueil</a>
                 </li>
                 <li>
                     <button id="openPopup" class="icon-button">
@@ -147,6 +148,10 @@ $tachesPhase[6] = $controller->showTaches(6);
 </div>
 
 
-  <script src="Etapes.js"></script>
 
+
+  <script src="Etapes.js"></script>
+  <?php 
+    include_once "testImage.php";
+?>
   </body>

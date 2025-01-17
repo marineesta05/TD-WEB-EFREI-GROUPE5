@@ -15,5 +15,11 @@ class TachesController
     public function showTaches($phase){
         return $this->model->getTacheByPhase($phase); 
     }
+
+    public function updateTacheEtat($idTache)
+    {
+        $updated = $this->model->updateTacheEtat($idTache);
+    }
+    
     
 }

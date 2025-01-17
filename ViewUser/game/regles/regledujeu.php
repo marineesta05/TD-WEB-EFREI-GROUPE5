@@ -13,7 +13,7 @@ include 'headerUser.php';
             Chaque étape vous demandera de trouver des objets ou de résoudre des énigmes. 
             Prenez votre temps, réfléchissez bien, et amusez-vous !
         </p>
-        <button><a href="../jeux.php">Commencer le jeu</a></button>
+        <button><a href="../jeux.php?nom=chambre">Commencer le jeu</a></button>
         
     </main>
 </body>

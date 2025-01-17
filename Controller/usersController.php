@@ -40,7 +40,7 @@ class UsersController
 
             if ($this->model->inscription($username, $email, $hashedPassword)) {
                 echo "Insertion réussie";
-                header("Location: index.php?page=connexion");
+                header("Location: ../index.php?page=connexion");
                 exit();
             } else {
                 echo "Échec de l'insertion.";
@@ -89,12 +89,15 @@ class UsersController
         if (isset($_POST['email']) && isset($_POST['mdp'])) {
             $email = $_POST['email'];
             $userAd = $this->model->getAdminByMail($email);
-            if ($userAd && password_verify($_POST['mdp'], $userAd['mdp'])) {
+            if ($userAd && ($_POST['mdp'] === $userAd['mdp'])) {
                 session_start();
                 $_SESSION['username'] = $userAd["username"];
                 header("Location: index.php?page=allusers");
                 exit();
             } else {
+                echo $_POST['mdp'] . ' ' . $userAd['mdp'];
+                echo $email;
+                var_dump($userAd);
                 echo "Vous ne pouvez pas vous connecter. Vous n'etes pas un admin.";
                 $this->getFormConnexion();
             }
@@ -111,7 +114,9 @@ class UsersController
 
     public function SuppUsers($id)
     {
-        $users = $this->model->deleteUser($id);
-        include 'ViewAdmin/allusers.php'; 
+        $this->model->deleteUser($id);
+        $users = $this->model->getAllUsers(); 
+        include 'ViewAdmin/allusers.php';
     }
+
 }

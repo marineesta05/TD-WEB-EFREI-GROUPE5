@@ -25,10 +25,11 @@ switch ($page) {
         break;
 
     case 'connexionAdmin':
-        include_once 'controller/usersController.php';
+        include_once 'Controller/usersController.php';
         $users = new UsersController;
         $users->connexionAdmin();
         break;
+        
 
     case 'deconnexion':
         session_destroy();
@@ -42,10 +43,22 @@ switch ($page) {
         break;
     
     case 'Supusers':
-        include_once 'Controller/usersController.php';
-        $users = new UsersController();
-        $users->SuppUsers($id);
+        if (isset($_GET['id'])) { 
+            $id = $_GET['id']; 
+            include_once 'Controller/usersController.php';
+            $users = new UsersController();
+            $users->SuppUsers($id); 
+        } else {
+            echo "ID manquant pour la suppression de l'utilisateur.";
+        }
         break;
+
+    case 'fait':
+        include_once 'Controller/tachesController.php';
+        $users = new TachesController();
+        $users->updateTacheEtat($_GET['idTache']);
+        break;
+        
         
     default:
         include 'ViewUser/404.php';

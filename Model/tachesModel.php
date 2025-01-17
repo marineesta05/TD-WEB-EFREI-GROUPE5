@@ -14,6 +14,12 @@ class TachesModel{
         $stmt->execute([$phase]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC); 
     }
+
+    public function updateTacheEtat($idTache) {
+        $stmt = $this->bdd->prepare("UPDATE etapes SET etat = 'FAIT' WHERE id = ? AND etat = 'NON FAIT'");
+        $stmt->execute([$idTache]);
+        return $stmt->rowCount() > 0;
+    }
     
 
 }
